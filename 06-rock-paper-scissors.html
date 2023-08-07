@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booleans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+      *{
+        transition: opacity 0.3s, filter 0.35s, font-size 0.3s, background-color 0.3s;
+        font-family: poppins;
+        margin: 0;
+      }
+      body,html{
+        height: 100%;
+      }
+      body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #212226;
+      }
+
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 7.5px;
+      }
+
+      .title{
+        color: white;
+        font-size: 30px;
+        text-align: left;
+        line-height: 70px;
+        width: 422px;
+        cursor: default;
+        text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+      }
+      .title:hover{
+        font-size: 28px;
+      }
+      .big{
+        font-size: 100px;
+        font-weight: 700;
+        color: #bda7f9;
+      }
+      .title:hover .big{
+        font-size: 108px;
+        filter: saturate(250%);
+      }
+
+      .choices{
+        display: flex;
+        flex-direction: row;
+        column-gap: 7.5px;
+        border-radius: 25px 25px 5px 5px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .choice{
+        font-size: 100px;
+        border: none;
+        border-radius: 5px;
+        padding: 0;
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.123);
+        cursor: pointer;
+      }
+      .choice:hover{
+        background-color: rgba(255, 255, 255, 0.267);
+      }
+      .choice:active{
+        opacity: 0.8;
+      }
+
+      .shoot-button{
+        font-size: 40px;
+        border-radius: 5px 5px 25px 25px;
+        padding: 10px 0px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        background-color: #bda7f9;
+        color: white;
+        border: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+      .shoot-button:hover{
+        filter: saturate(250%);
+      }
+      .shoot-button:active{
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p class="title">Rock, Paper, Scissors... <span class="big">SHOOT!</span></p>
+
+      <div class="choices">
+        <button class="choice" onclick="
+          moveUser = 'Rock';
+        ">✊</button>
+
+        <button class="choice" onclick="
+          moveUser = 'Paper';
+        ">✋</button>
+
+        <button class="choice" onclick="
+          moveUser = 'Scissors';
+        ">✌️</button>
+      </div>
+
+      <button class="shoot-button" onclick="
+        const randomNumber = Math.random();
+        if(moveUser !== ''){
+          if (randomNumber <= (1/3)) {
+            moveComputer = 'Rock';
+          } else if (randomNumber > (1/3) && randomNumber <= (2/3)) {
+            moveComputer = 'Paper';
+          } else {
+            moveComputer = 'Scissors';
+          }
+          
+          if (moveUser !== moveComputer) {
+            if (moveUser === 'Rock') {
+              if(moveComputer === 'Paper') {
+                result = 'You lost!';
+              }
+              else {
+                result = 'You won!';
+              }
+            } else if (moveUser === 'Paper') {
+              if(moveComputer === 'Scissors') {
+                result = 'You lost!';
+              }
+              else {
+                result = 'You won!';
+              }
+            } else {
+              if(moveComputer === 'Rock') {
+                result = 'You lost!';
+              }
+              else {
+                result = 'You won!';
+              }
+            }
+          }
+          else {
+            result = `It's a draw!`;
+          }
+
+          alert(`${result}\nYou played: ${moveUser}\nComputer played: ${moveComputer}`);
+
+        } else {
+          alert(`You didn't pick a choice yet!`);
+        }
+
+        moveUser = '';
+        result = '';
+        
+      ">SHOOT</button>
+    </div>
+
+    <script>
+      let moveComputer = '';
+      let moveUser = '';
+      let result = '';
+    </script>
+  </body>
+</html>
