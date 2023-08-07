@@ -100,15 +100,18 @@
       <p class="title">Rock, Paper, Scissors... <span class="big">SHOOT!</span></p>
 
       <div class="choices">
-        <button class="choice" onclick="
+        <button class="choice" data-choice="Rock" onclick="
+          selectChoice(this);
           moveUser = 'Rock';
         ">✊</button>
 
-        <button class="choice" onclick="
+        <button class="choice" data-choice="Paper" onclick="
+          selectChoice(this);
           moveUser = 'Paper';
         ">✋</button>
 
-        <button class="choice" onclick="
+        <button class="choice" data-choice="Scissors" onclick="
+          selectChoice(this);
           moveUser = 'Scissors';
         ">✌️</button>
       </div>
@@ -160,6 +163,9 @@
 
         moveUser = '';
         result = '';
+
+        const choices = document.querySelectorAll('.choice');
+        choices.forEach(button => button.style.backgroundColor = 'rgba(255, 255, 255, 0.123)');
         
       ">SHOOT</button>
     </div>
@@ -168,6 +174,14 @@
       let moveComputer = '';
       let moveUser = '';
       let result = '';
+
+      function selectChoice(choice) {
+        const choices = document.querySelectorAll('.choice');
+        choices.forEach(button => button.style.backgroundColor = 'rgba(255, 255, 255, 0.123)');
+        choice.style.backgroundColor = 'rgba(255, 255, 255, 0.267)';
+        moveUser = choice.getAttribute('data-choice');
+      }
+
     </script>
   </body>
 </html>
