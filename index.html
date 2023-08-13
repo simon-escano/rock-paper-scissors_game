@@ -5,11 +5,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/10-rock-paper-scissors.css">
+    <link rel="stylesheet" href="styles/12-rock-paper-scissors.css">
   </head>
   <body>
     <div class="container">
-      <p class="title">Rock, Paper, Scissors... <span class="title-bold">SHOOT!</span></p>
+      <div class="title">Rock, Paper, Scissors... <span class="title-bold">SHOOT!</span></div>
 
       <div class="game-flexbox">
         <div class="game-info-row">
@@ -19,10 +19,12 @@
         </div>
 
         <div class="game-choices">
-          <button class="game-choice" onclick="playGame('✊');">✊</button>
-          <button class="game-choice" onclick="playGame('✋');">✋</button>
-          <button class="game-choice" onclick="playGame('✌️');">✌️</button>
+          <button class="game-choice js-rock-button">✊</button>
+          <button class="game-choice js-paper-button">✋</button>
+          <button class="game-choice js-scissors-button">✌️</button>
         </div>
+
+        <button class="autoplay-button js-autoplay-button">AUTO  PLAY</button>
 
         <div class="game-score-row">
           <div class="game-score-board">
@@ -39,11 +41,15 @@
               <p>DRAWS</p>
             </div>
           </div>
-          <button class="reset-button" onclick="resetScore();">RESET</button>
+          <button class="reset-button js-reset-button">RESET</button>
         </div>
+      </div>
+
+      <div class="reset-confirmation">
+        
       </div>
     </div>
 
-    <script src="scripts/10-rock-paper-scissors.js"></script>
+    <script src="scripts/12-rock-paper-scissors.js"></script>
   </body>
 </html>
